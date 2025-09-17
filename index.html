@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card <3 </title>
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  
+  	<div class="card">
+		<div class="imgBox">
+			<div class="bark"></div>
+			<img src="img/download (6).jpeg">
+		</div>
+		<div class="details">
+			<h4 class="color1">You're not a Fossil! (YET)</h2>
+			<h4 class="color2 margin">(HAPPY BIRTHDAY BITCH)</h3>
+			<p>Hey,</p>
+			<p>I wanted you to know</p>
+			<p>how much i have</p>
+			<p>enjoyed annoying you</p>
+			<p>all this time and</p>
+			<p>how excited i am to</p>
+			<p>continue this in the future :)</p>
+      
+			<p class="text-right">Happy Birthday fool</p>
+      <br>
+			<p class="text-right">♥Archa</p>
+		</div>
+	</div>
+
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 50vh;
+            margin: 0;
+        }
+        .player {
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+        button {
+            background: #00bfff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .progress {
+            width: 100%;
+            height: 5px;
+            background: #555;
+            margin: 10px 0;
+            position: relative;
+        }
+        .progress-filled {
+            height: 100%;
+            background: #00bfff;
+            width: 0%;
+        }
+        .time {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+
+				.card {
+					top: 80%;
+				}
+    </style>
+
+
+    <div class="player">
+        <h2>Simple Music Player</h2>
+        <button id="playPause">Play</button>
+        <div class="progress" id="progressContainer">
+            <div class="progress-filled" id="progressBar"></div>
+        </div>
+        <div class="time">
+            <span id="currentTime">0:00</span>
+            <span id="duration">0:00</span>
+        </div>
+    </div>
+
+    <!-- Hardcoded audio file -->
+    <audio id="audio" src="img/SCENT OF LOVE🤍Best smell in the world is the scent of the person you luv❤️Something new is coming🙈 [k8iWwD7Db90].mp3"></audio>
+
+    <script>
+        const audio = document.getElementById('audio');
+        const playPauseBtn = document.getElementById('playPause');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressBar = document.getElementById('progressBar');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+
+        // Wait until metadata is loaded to show duration
+        audio.addEventListener('loadedmetadata', () => {
+            durationEl.textContent = formatTime(audio.duration);
+        });
+
+        // Play or pause the audio
+        playPauseBtn.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.textContent = "Pause";
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = "Play";
+            }
+        });
+
+        // Update progress bar and current time
+        audio.addEventListener('timeupdate', function() {
+            const progressPercent = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = `${progressPercent}%`;
+            currentTimeEl.textContent = formatTime(audio.currentTime);
+        });
+
+        // Seek when clicking the progress bar
+        progressContainer.addEventListener('click', function(e) {
+            const width = this.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            audio.currentTime = (clickX / width) * duration;
+        });
+
+        // Format time in mm:ss
+        function formatTime(time) {
+            const minutes = Math.floor(time / 60);
+            const seconds = Math.floor(time % 60);
+            return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+    </script>
+
+
+	
+
+   <a href="index2.html"><button>Next Page</button></a>
+
+
+<script src="script.js"></script>
+</body>
+</html>

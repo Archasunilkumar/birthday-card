@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Yours!!</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #FDE3A7;
+            color: #ffb845;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            background: #000000;
+            border: none;
+            color: #ffb845;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+     background: #ffb845;
+            color: #000000;
+}
+        video {
+            margin-top: 20px;
+            width: 560px;
+            max-width: 100%;
+            border: 2px solid #eaff7f;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>AAIHATEYOUSOOMUCH<3 </h2>
+    <button id="playBtn">Play Video</button>
+    <video id="videoPlayer" controls style="display: none;">
+        <source src="img/Glue Song by Beabadoobee _ Animated Lyric Video ☁️🤍🧸.mp4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        const playBtn = document.getElementById('playBtn');
+        const videoPlayer = document.getElementById('videoPlayer');
+
+        playBtn.addEventListener('click', function() {
+            videoPlayer.style.display = "block";
+            videoPlayer.play();
+        });
+    </script>
+<br>
+<br>
+<a href="index2.html"><button>Previous Page</button></a>
+</body>
+</html>
